@@ -341,3 +341,7 @@ body.preloader-site {
 .white {
     color:ghostwhite
 }
+
+.input_error {
+  color: red;
+}

@@ -59,8 +59,6 @@ $("#submit-to-telegram").on("submit", function(e) {
     e.preventDefault();
 
     var token = "1622377904:AAHoqn-ioTZfa6xcYaGoinlMcippRNw_d0U";
-
-    //Сюда вставляем chat_id
     var chatId = "-511191109";
 
     var name = e.target.name.value;
@@ -68,29 +66,37 @@ $("#submit-to-telegram").on("submit", function(e) {
     var message = e.target.message.value;
     var date = new Date();
     var txt = `<b>Новая заявка ${date}</b>%0A<b>Имя:</b> ${name}%0A<b>Телефон:</b> ${phone}%0A<b>Сообщение:</b> ${message}`;
-
-
-
-    // var data = $(e.target).serialize();
-
-    $.ajax({
-    //   url: 'http://localhost:8080/send_messege.php',
-      url:  `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}`,
-      method: 'POST',
-      type: 'json',
-      data: `parse_mode=html&text=${txt}`,
-    }).done(function(data) {
-        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-    }).fail(function() {
-        alert('Что-то пошло не так. ПОпробуйте отправить форму ещё раз');
-    });
-
+    if ($("#submit-to-telegram").valid()) {
+        $.ajax({
+            url:  `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}`,
+            method: 'POST',
+            type: 'json',
+            data: `parse_mode=html&text=${txt}`,
+          }).done(function() {
+              alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+          }).fail(function() {
+              alert('Что-то пошло не так. Попробуйте отправить форму ещё раз.Ы');
+          });
+    }
 });
 
-// function otpravka(token,text,chatid){
-//     var z=$.ajax({  
-//     type: "POST",  
-//     url: "https://api.telegram.org/bot"+token+"/sendMessage?chat_id="+chatid,
-//     data: "parse_mode=HTML&text="+encodeURIComponent(text), 
-//     }); 
-//    };
+$("#submit-to-telegram").validate({
+    rules: {
+        name: "required",
+        phone:  {
+            required: true,
+            minlength: 6,
+            maxlength: 12
+        },
+    },
+    messages: {
+        name: "Введите ваше имя",
+        phone: {
+            required: "Введите ваш телефон",
+            minlength: "Минимальное количество символов 6",
+            maxlength: "Минимальное количество символов 12"
+        }
+    },
+    focusInvalid: true,
+    errorClass: "input_error"
+});

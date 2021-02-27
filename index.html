@@ -262,20 +262,23 @@
             </div>
             <div class="column is-8 is-offset-2">
               <form id="submit-to-telegram">
+
                 <div class="field">
                   <label class="label">Имя</label>
                   <div class="control has-icons-left">
                     <input
                       class="input"
                       type="text"
-                      placeholder="Евгений"
+                      placeholder="Валерий"
                       name="name"
+                      required="required"
                     />
                     <span class="icon is-small is-left">
                       <i class="fas fa-user"></i>
                     </span>
                   </div>
                 </div>
+
                 <div class="field">
                   <label class="label">Телефон</label>
                   <div class="control has-icons-left">
@@ -284,14 +287,16 @@
                       type="tel"
                       pattern="[0-9]{1,12}"
                       maxlength="12"
-                      placeholder="Номер телефона"
+                      placeholder="Номер телефsона"
                       name="phone"
+                      required="required"
                     />
                     <span class="icon is-small is-left">
                       <i class="fas fa-phone"></i>
                     </span>
                   </div>
                 </div>
+
                 <div class="field">
                   <label class="label">Сообщение</label>
                   <div class="control">
@@ -302,6 +307,7 @@
                     ></textarea>
                   </div>
                 </div>
+
                 <div class="field">
                   <div class="control ">
                     <button class="button submit-button">
@@ -310,7 +316,7 @@
                     </button>
                   </div>
                 </div>
-                <input type="hidden" name="act" value="order">
+
               </form>
             </div>
           </div>
@@ -321,6 +327,7 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
     <script src="js/snowcase.js"></script>
