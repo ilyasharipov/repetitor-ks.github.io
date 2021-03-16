@@ -82,9 +82,9 @@ html {
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop {
   line-height: 38px;
   font-weight: 600;
-  text-transform: lowercase;
+  text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li {
