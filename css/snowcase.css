@@ -59,6 +59,21 @@ html {
   }
 }
 
+@media (max-width: 424px) {
+  .hero .title {
+    font-family: 'Kaushan Script', sans-serif;
+    /* transform: rotate(-5deg); */
+    font-size: 3rem;
+    color: whitesmoke;
+  }
+
+  .hero .profession {
+    padding-top: 50px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+}
+
 .hero .hero-foot .hero-foot--wrapper {
   margin: 7px auto;
   height: 50px;
@@ -230,6 +245,14 @@ html {
   color: white;
 }
 
+@media (max-width: 424px) {
+  .main-content .section-color.services {
+    padding: 30px;
+    background-color: #43485c;
+    color: white;
+  }
+}
+
 .main-content .section-color.services .title,
 .main-content .section-color.services .subtitle {
   color: white;
@@ -345,3 +368,26 @@ body.preloader-site {
 .input_error {
   color: red;
 }
+
+#services img:hover {
+  /* background-color: transparent; */
+  opacity: 0.5;
+}
+
+/* .ege::before {
+  display: block;
+  position: absolute;
+  content: 'ПОДГОТОВКА К ЕГЭ';
+  background: black;
+  font-size: 2em;
+  left: 50px;
+
+}
+
+.oga {
+
+}
+
+.intensive {
+
+} */
